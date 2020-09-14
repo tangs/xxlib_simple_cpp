@@ -18,23 +18,36 @@ namespace xx {
     };
 
     struct Behaviour_cxx : public Behaviour {
-        void Awake();
-        void Start();
-        void Update();
-        void OnEnable();
-        void OnDisable();
-        void OnDestroy();
+        Behaviour_cxx() = default;
+        Behaviour_cxx(Behaviour_cxx const &) = delete;
+        Behaviour_cxx &operator=(Behaviour_cxx const &) = delete;
+
+        void Awake() override;
+        void Start() override;
+        void Update() override;
+        void OnEnable() override;
+        void OnDisable() override;
+        void OnDestroy() override;
     };
 
     struct Behaviour_lua : public Behaviour {
-        std::function<void()> onAwake;
+        Behaviour_lua() = default;
+        Behaviour_lua(Behaviour_lua const &) = delete;
+        Behaviour_lua &operator=(Behaviour_lua const &) = delete;
 
-        void Awake();
-        void Start();
-        void Update();
-        void OnEnable();
-        void OnDisable();
-        void OnDestroy();
+        std::function<void()> awake;
+        std::function<void()> start;
+        std::function<void()> update;
+        std::function<void()> on_enable;
+        std::function<void()> on_disable;
+        std::function<void()> on_destroy;
+
+        void Awake() override;
+        void Start() override;
+        void Update() override;
+        void OnEnable() override;
+        void OnDisable() override;
+        void OnDestroy() override;
     };
 }
 

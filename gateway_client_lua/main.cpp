@@ -26,6 +26,8 @@ struct Foo {
 
 using Foo_u = std::unique_ptr<Foo>;
 
+using Behaviour_u = std::unique_ptr<xx::Behaviour_lua>;
+
 namespace xx::Lua {
     template<>
     struct MetaFuncs<Foo_u, void> {
