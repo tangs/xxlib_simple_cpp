@@ -1,6 +1,8 @@
 ﻿#include "xx_lua.h"
 #include <iostream>
 
+#include "xx_behaviour.h"
+
 namespace XL = xx::Lua;
 
 struct Foo {
@@ -65,6 +67,9 @@ collectgarbage("collect")
     });
     if (r) xx::CoutN(r.m);
     else xx::CoutN("end.");
+
+    std::unique_ptr<xx::Behaviour> behaviour = std::make_unique<xx::Behaviour_cxx>();
+    behaviour->Awake();
 }
 
 

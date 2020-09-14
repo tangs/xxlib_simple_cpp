@@ -19,6 +19,7 @@ add_definitions("-DMAKE_LIB -DLUA_USE_LINUX -flto")
 add_executable(gateway_client_lua
         main.cpp
         FileExts_class_lite.cpp
+        xx_behaviour.cpp
         ${LUA_SRC}
         )
 
